@@ -14,7 +14,7 @@ games = parser.search('Far Cry').games
 
 for game in games:
     game.get_details()
-    print('Игра: %s\nТрейлер: %s' % (game.name, game.trailer) )
+    print( 'Игра: %s\nТрейлер: %s' % (game.name, game.trailer) )
 
 games[0].download('Custom name') #Скачать игру
 ```
