@@ -9,7 +9,7 @@ setup(
     author='lordcodes',
     author_email='lordgrief176@gmail.com',
     description='Torrent-Igruha SDK Python',
-    install_requires=['requests', 'lxml', 'beautifulsoup4'],
+    install_requires=['requests', 'lxml', 'beautifulsoup4', 'cfscrape'],
     long_description=long_description,
     long_description_content_type='text/markdown'
 )
