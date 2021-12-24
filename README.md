@@ -16,7 +16,7 @@ for game in games:
     game.get_details()
     print( 'Игра: %s\nТрейлер: %s' % (game.name, game.trailer) )
 
-games[0].download('Custom name') #Скачать игру
+games[0].download('/custom/path/game') #Скачать игру
 ```
 
 Дополнительная информация и методы: https://github.com/LORD-ME-CODE/igruha
