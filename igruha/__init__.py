@@ -84,6 +84,7 @@ class Game:
     def get_details(self):
         text = self.session.post(url=self.link).text
         tree = BeautifulSoup(text, "lxml").find('div', {'id': "dle-content"})
+        self.alls = tree.find('div', {'style': 'padding-left: 215px;'}).text.replace('<br>', "\n")
         alls = '\n'.join(tree.find('div', {'style': "padding-left: 215px;"}).text.split('<br>'))
         try: self.released = alls.split('Год выпуска: ')[1].split('Жанр')[0]
         except:
@@ -105,7 +106,7 @@ class Game:
         except: pass
         try: self.tablet = alls.split('летка:')[1].split('Сист')[0]
         except: print('WARN: Не удалось найти информацию про таблетку')
-        try: self.requirements = alls.split('Системные требования:')[1].split('\n\n')[0]
+        try: self.requirements = self.alls.split('Системные требования:')[1].split('\n\n')[0]
         except: pass
         try: self.description = tree.find('div', {'class': 'blockinfo'}).text.split('h2')[0].replace('<br>', '\n').\
             replace('<ul>', '• ').replace('</ul>', '\n')
