@@ -4,7 +4,7 @@ import cfscrape
 
 
 class Igruha:
-    def __init__(self, session=Sess(), url='https://q.itorrents-igruha.org/', headers=None):
+    def __init__(self, session=Sess(), url='https://i.itorrents-igruha.org/', headers=None):
         if headers is None:
             headers = {
                 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,'
@@ -57,7 +57,7 @@ class Igruha:
         return self.result
 
     def main_games(self):
-        url = 'http://q.itorrents-igruha.org/'
+        url = 'https://i.itorrents-igruha.org/'
         h = {
             'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
             'accept-encoding': 'gzip, deflate, utf-8',
@@ -146,7 +146,7 @@ class Game:
                 for i in enumerate(tree.find_all('a', {'class': 'torrent'})):
                     self.torrents.append(Torrent(i[1], self.torrent_names[i[0]], self.session, self.name))
                 self.id = self.ids[0]
-                self.torrent = 'https://q.itorrents-igruha.org/engine/download.php?id=' + str(self.id)
+                self.torrent = 'https://i.itorrents-igruha.org/engine/download.php?id=' + str(self.id)
         except:
             pass
         return self
@@ -168,7 +168,7 @@ class Torrent:
         self.source = source
         self.session = session
         try:
-            self.link = 'https://q.itorrents-igruha.org/engine/download.php?id=' + self.source.get('href').split('id=')[1]
+            self.link = 'https://i.itorrents-igruha.org/engine/download.php?id=' + self.source.get('href').split('id=')[1]
         except:
             self.link = self.source.get('href')
         self.name = name
